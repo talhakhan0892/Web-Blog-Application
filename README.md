@@ -1,5 +1,5 @@
 # **Blog Application**
-A basic website for managing blog entries. Built with Express, Node.js, and EJS for practicing web development fundamentals.
+A **very** basic website for managing blog entries. Built with Express, Node.js, and EJS for practicing web development fundamentals.
 
 ## **Features**
 Create: Add new blog entries with titles and content.
