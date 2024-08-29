@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- font from google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <%- include("partials/header.ejs") %>
+    <h2>Essays</h2>
+    <button class="compose-btn"><a href="/compose" class="compose-button">Compose Your Own Entry</a></button>
+
+    <% if (locals.titles && locals.entries) { %> 
+       
+
+        <% for (var i = 0; i < titles.length; i++) { %>
+            <div class="blog-entry">
+                <h2> <%=titles[i] %> </h2>
+                <h3> <%= entries[i] %> </h3>
+
+
+                 <form action="/delete" method="POST" style="display:inline;">
+                    <input type="hidden" name="postIndex" value="<%= i %>">
+                    <button type="submit">Delete</button>
+                 </form>
+
+                 <form action="/edit" method="POST" style="display:inline;">
+                    <input type="hidden" name="postIndex" value="<%= i %>">
+                    <button type="submit">Edit</button>
+                 </form>
+            </div>
+            
+        <% } %>  
+    <% } %>
+
+
+
+</body>
+</html>
